@@ -12,7 +12,79 @@
     --text: #d1d5db;
     --emerald: #10b981;
 }
+.cyber-badge {
+    border: 1px solid rgba(16,185,129,0.4);
+    box-shadow: 0 0 20px rgba(16,185,129,0.15);
+    border-radius: 14px;
+    padding: 0;
+    overflow: hidden;
+}
 
+/* HEADER BAR */
+.badge-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: #0a0f1f;
+    border-bottom: 1px solid rgba(16,185,129,0.3);
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #10b981;
+}
+
+/* STATUS DOT */
+.status {
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* MAIN LAYOUT */
+.badge-body {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* PROFILE IMAGE */
+.badge-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #10b981;
+    box-shadow: 0 0 15px rgba(16,185,129,0.4);
+}
+
+/* TEXT */
+.badge-info h3 {
+    margin: 0;
+    color: #10b981;
+}
+
+.role {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+}
+
+/* TAGS */
+.badge-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge-tags span {
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3);
+    color: #10b981;
+}
 /* GLOBAL */
 body {
     margin: 0;
@@ -171,18 +243,41 @@ footer {
 <!-- ABOUT -->
 <section id="about">
 <h2>About</h2>
-<div class="card">
-<p>
-Cybersecurity and Digital Forensics student focused on protecting systems,
-solving complex problems, and analyzing digital threats.
-</p>
-<img src="headshot.jpg" width="200">
+
+<div class="card cyber-badge">
+
+    <div class="badge-header">
+        <span>SECURE ACCESS PROFILE</span>
+        <span class="status">● ACTIVE</span>
+    </div>
+
+    <div class="badge-body">
+
+        <img src="./Headshot.jpg" class="badge-photo">
+
+        <div class="badge-info">
+            <h3>Rebekah Cheyenne Conner</h3>
+            <p class="role">Cybersecurity & Digital Forensics Student</p>
+
+            <p>
+                Focused on secure systems, digital investigations, and defensive security practices.
+                Passionate about protecting data and analyzing cyber threats.
+            </p>
+
+            <div class="badge-tags">
+                <span>Secure Systems</span>
+                <span>Digital Forensics</span>
+                <span>IT Security</span>
+            </div>
+        </div>
+
+    </div>
 </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-<h2>Projects (Click to Flip)</h2>
+<h2>Projects</h2>
 
 <div class="carousel">
 
@@ -191,7 +286,7 @@ solving complex problems, and analyzing digital threats.
 <div class="flip-inner">
 
 <div class="flip-front">
-<img src="images/secure-message.jpg">
+<img src="secure-message.jpg">
 </div>
 
 <div class="flip-back">
@@ -207,7 +302,7 @@ solving complex problems, and analyzing digital threats.
 <div class="flip-inner">
 
 <div class="flip-front">
-<img src="images/tree-map.jpg">
+<img src="tree-map.jpg">
 </div>
 
 <div class="flip-back">
@@ -235,7 +330,7 @@ Designed a user-focused website with wireframes and usability testing.
 
 <video controls>
 <source src="ux-recording.mp4" type="video/mp4">
-Your browser does not support video.
+
 </video>
 
 </div>
@@ -264,14 +359,13 @@ Download Resume
 <h2>Research Papers</h2>
 
 <div class="card">
-<h3>Paper 1</h3>
+  <h3>Paper 1</h3>
 
-<!-- HOW TO USE:
-1. Upload PDF to GitHub
-2. Replace file name below -->
+  <p>Research paper on cybersecurity concepts and analysis.</p>
 
-<iframe src="finalassignment" class="docx"></iframe>
-
+  <a href="finalassignment.docx" target="_blank" class="btn">
+    Download Word Document
+  </a>
 </div>
 
 <div class="card">
