@@ -1,168 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebekah Cheyenne Conner | Cybersecurity Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
-        header {
-            background: #020617;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            color: #38bdf8;
-        }
-        nav {
-            text-align: center;
-            padding: 10px;
-            background: #1e293b;
-        }
-        nav a {
-            color: #e2e8f0;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
-        }
-        h2 {
-            color: #38bdf8;
-            border-bottom: 2px solid #38bdf8;
-            padding-bottom: 5px;
-        }
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebekah Conner | Cybersecurity Portfolio</title>
+
+<style>
+:root {
+    --bg: #0b1220;
+    --card: #111a2e;
+    --card2: #0f1b33;
+    --text: #d1d5db;
+    --emerald: #10b981;
+    --silver: #cbd5e1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px;
+    border-bottom: 2px solid var(--emerald);
+}
+
+header h1 {
+    color: var(--emerald);
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #0f172a;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    margin: 8px 12px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--emerald);
+}
+
+/* SECTION */
+section {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    color: var(--emerald);
+    margin-bottom: 20px;
+}
+
+/* CARD */
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+/* ABOUT */
+.about-flex {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-flex img {
+    width: 220px;
+    border-radius: 10px;
+    border: 2px solid var(--emerald);
+}
+
+/* CAROUSEL */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+}
+
+.project {
+    min-width: 280px;
+    background: var(--card2);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.project:hover {
+    border: 1px solid var(--emerald);
+}
+
+.project img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: var(--emerald);
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* PDF EMBED */
+.pdf {
+    width: 100%;
+    height: 500px;
+    border: none;
+    margin-top: 10px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>Rebekah Cheyenne Conner</h1>
-    <p>Cybersecurity & IT Professional</p>
+<h1>Rebekah Cheyenne Conner</h1>
+<p>Cybersecurity & Digital Forensics</p>
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#tools">Tools</a>
-    <a href="#growth">Growth</a>
-    <a href="#hire">Why Hire Me</a>
-    <a href="#contact">Contact</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#tools">Tools</a>
+<a href="#resume">Resume</a>
+<a href="#papers">Papers</a>
+<a href="#contact">Contact</a>
 </nav>
 
+<!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>
-            I am Rebekah Cheyenne Conner, a Bachelor of Science in Information Technology student 
-            with a concentration in Cybersecurity and Digital Forensics. My career goal is to 
-            become a Cybersecurity Analyst or IT Specialist, with long-term aspirations of 
-            working in digital forensics, including collaboration with forensic and homicide units.
-        </p>
-    </div>
+<h2>About</h2>
+<div class="card about-flex">
+<img src="Headshot.jpg">
+<p>
+Cybersecurity and Digital Forensics student focused on secure systems,
+problem-solving, and protecting digital environments. My goal is to
+work in cybersecurity analysis and digital investigations.
+</p>
+</div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
-    <h2>Projects</h2>
+<h2>Projects</h2>
 
-    <div class="card">
-        <h3>Secure Code / Encryption</h3>
-        <p>Built a program to encrypt and decrypt messages with a focus on logic and error handling. This project demonstrates secure coding practices.</p>
-        <img src"images/SecureMessageEncoderCode.jpg" width= "600">
-    </div>
+<div class="carousel">
 
-    <div class="card">
-        <h3>Data Structures</h3>
-        <p>Implemented stacks, trees, and algorithms with a focus on efficiency and performance. This provides a strong foundation for secure systems.</p>
-    </div>
+<div class="project" onclick="openModal('Encryption Project','Secure encryption/decryption system.','images/SecureMessageEncoderCode.jpg')">
+<h3>Encryption</h3>
+<img src="images/SecureMessageEncoderCode.jpg">
+</div>
 
-    <div class="card">
-        <h3>Website Design</h3>
-        <p>Designed and developed a website demonstrating front-end development and user experience principles.</p>
-    </div>
+<div class="project" onclick="openModal('Data Structures','Trees and stacks implementation.','images/TreeMapCode.jpg')">
+<h3>Data Structures</h3>
+<img src="images/TreeMapCode.jpg">
+</div>
+
+<div class="project" onclick="openModal('UX Design','Website design and usability testing.','ux website frames.jpg')">
+<h3>UX Design</h3>
+<img src="ux website frames.jpg">
+</div>
+
+</div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
-    <h2>Cybersecurity Skills</h2>
-    <div class="card">
-        <ul>
-            <li>Secure Coding Practices</li>
-            <li>Encryption & Decryption</li>
-            <li>Data Structures & Algorithms</li>
-            <li>Problem Solving</li>
-            <li>Error Handling & Debugging</li>
-        </ul>
-    </div>
+<h2>Skills</h2>
+<div class="card">
+<ul>
+<li>Secure Coding</li>
+<li>Encryption</li>
+<li>Data Structures</li>
+<li>Debugging</li>
+</ul>
+</div>
 </section>
 
+<!-- TOOLS -->
 <section id="tools">
-    <h2>Tools & Technologies</h2>
-    <div class="card">
-        <ul>
-            <li>Java</li>
-            <li>HTML/CSS</li>
-            <li>GitHub</li>
-            <li>Cybersecurity Tools (learning phase)</li>
-        </ul>
-    </div>
+<h2>Tools</h2>
+<div class="card">
+<ul>
+<li>Java</li>
+<li>HTML/CSS</li>
+<li>GitHub</li>
+</ul>
+</div>
 </section>
 
-<section id="growth">
-    <h2>Growth & Learning</h2>
-    <div class="card">
-        <p>
-            I am continuously expanding my knowledge in cybersecurity, digital forensics, 
-            and IT systems. I am committed to learning new tools, improving my technical skills, 
-            and staying updated with evolving security threats.
-        </p>
-    </div>
+<!-- RESUME -->
+<section id="resume">
+<h2>Resume</h2>
+<div class="card">
+<p>Download my resume:</p>
+
+<!-- PUT YOUR RESUME FILE IN YOUR REPO -->
+<!-- Example: upload "resume.pdf" to GitHub and keep this name -->
+<a href="resume.pdf" target="_blank" class="btn">
+View Resume
+</a>
+
+</div>
 </section>
 
-<section id="hire">
-    <h2>Why Hire Me</h2>
-    <div class="card">
-        <ul>
-            <li>Strong foundation in cybersecurity and IT concepts</li>
-            <li>Hands-on project experience</li>
-            <li>Motivated and eager to learn</li>
-            <li>Detail-oriented with strong problem-solving skills</li>
-        </ul>
-    </div>
+<!-- PAPERS -->
+<section id="papers">
+<h2>Research Papers</h2>
+
+<div class="card">
+<h3>Paper 1</h3>
+
+<!-- ===============================
+HOW TO ADD YOUR PDF:
+1. Upload your PDF file to your GitHub repo
+2. Replace "paper1.pdf" with your file name
+3. Keep it in same folder OR adjust path
+
+EXAMPLE:
+<iframe src="myCyberPaper.pdf" class="pdf"></iframe>
+================================ -->
+
+<iframe src="paper1.pdf" class="pdf"></iframe>
+
+</div>
+
+<div class="card">
+<h3>Paper 2</h3>
+
+<!-- SAME INSTRUCTIONS AS ABOVE -->
+
+<iframe src="paper2.pdf" class="pdf"></iframe>
+
+</div>
+
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <p>Email: cheyenneconner54@gmail.com</p>
-        <p>LinkedIn: www.linkedin.com/in/cheyenne-conner-829105340 </p>
-        <p>GitHub:  https://github.com/Rconner-03 </p>
-    </div>
+<h2>Contact</h2>
+<div class="card">
+<p>Email: cheyenneconner54@gmail.com</p>
+<p>LinkedIn: linkedin.com/in/cheyenne-conner-829105340</p>
+<p>GitHub: github.com/Rconner-03</p>
+</div>
 </section>
 
 <footer>
-    <p>© 2026 Rebekah Cheyenne Conner | Cybersecurity Portfolio</p>
+© 2026 Rebekah Conner
 </footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">X</span>
+<h2 id="modalTitle"></h2>
+<p id="modalText"></p>
+<img id="modalImg" style="width:100%;">
+</div>
+</div>
+
+<script>
+function openModal(title, text, img){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalTitle").innerText=title;
+document.getElementById("modalText").innerText=text;
+document.getElementById("modalImg").src=img;
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+</script>
 
 </body>
 </html>
