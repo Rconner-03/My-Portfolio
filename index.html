@@ -213,7 +213,12 @@ video {
     border-radius: 8px;
     margin-top: 10px;
 }
-
+.flip-back video {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(16,185,129,0.4);
+    box-shadow: 0 0 15px rgba(16,185,129,0.25);
+}
 /* BUTTON */
 .btn {
     display: inline-block;
@@ -345,10 +350,10 @@ Network Security, and Digital Forensics Concepts.
 <img src="./secure-message.jpg">
 </div>
 
-<div class="flip-back" style="padding-left: 25px; padding-right: 15px;">
-<h3 style="margin-left: 10px;">Encryption Project</h3>
+<div class="flip-back" style="padding-left: 35px; padding-right: 25px;">
+<h3 style="margin-left: 20px;">Encryption Project</h3>
 
-<p style="margin-left: 10px;">
+<p style="margin-left: 20px;">
 Secure encryption and decryption system with strong error handling and logic-based protection methods.
 </p>
 
@@ -386,14 +391,37 @@ Secure encryption and decryption system with strong error handling and logic-bas
 Wireframes, usability testing, and user-centered design for accessibility and workflow optimization.
 </p>
 
-<video controls style="margin-top:10px;">
+</div>
+
+</div>
+</div>  
+
+    <div class="flip-card" onclick="flip(this)">
+<div class="flip-inner">
+
+<!-- FRONT (VIDEO THUMB) -->
+<div class="flip-front">
+<img src="./ux-homeless.jpg" alt="UX Video Project">
+</div>
+
+<!-- BACK (VIDEO ONLY) -->
+<div class="flip-back">
+
+<h3>UX Design Video Walkthrough</h3>
+
+<p>
+Full demonstration of UX wireframes, user flow, and usability testing process.
+</p>
+
+<video controls>
     <source src="./ux-recording.mp4" type="video/mp4">
+    Your browser does not support the video tag.
 </video>
 
 </div>
 
 </div>
-</div>  
+</div>
 </section>
 
    <section id="accomplishments">
@@ -467,7 +495,7 @@ const text = [
 "> Initializing...",
 "> Loading Portfolio...",
 "> Access Granted",
-"> Welcome... Rebekah Conner"
+"> Welcome   Rebekah Conner"
 ];
 
 let i=0,j=0,current="";
