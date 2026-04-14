@@ -12,85 +12,44 @@
     --text: #d1d5db;
     --emerald: #10b981;
 }
-.cyber-badge {
-    border: 1px solid rgba(16,185,129,0.4);
-    box-shadow: 0 0 20px rgba(16,185,129,0.15);
-    border-radius: 14px;
-    padding: 0;
-    overflow: hidden;
-}
 
-/* HEADER BAR */
-.badge-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background: #0a0f1f;
-    border-bottom: 1px solid rgba(16,185,129,0.3);
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #10b981;
-}
-
-/* STATUS DOT */
-.status {
-    color: #10b981;
-    font-weight: bold;
-}
-
-/* MAIN LAYOUT */
-.badge-body {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-/* PROFILE IMAGE */
-.badge-photo {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid #10b981;
-    box-shadow: 0 0 15px rgba(16,185,129,0.4);
-}
-
-/* TEXT */
-.badge-info h3 {
-    margin: 0;
-    color: #10b981;
-}
-
-.role {
-    font-size: 14px;
-    color: #94a3b8;
-    margin-bottom: 10px;
-}
-
-/* TAGS */
-.badge-tags {
-    margin-top: 10px;
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.badge-tags span {
-    font-size: 12px;
-    padding: 5px 8px;
-    border-radius: 6px;
-    background: rgba(16,185,129,0.1);
-    border: 1px solid rgba(16,185,129,0.3);
-    color: #10b981;
-}
 /* GLOBAL */
 body {
     margin: 0;
     font-family: monospace;
-    background: var(--bg);
+    background: radial-gradient(circle at top, #0f172a, #050814);
     color: var(--text);
+    overflow-x: hidden;
+}
+
+/* CYBER GRID */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(rgba(16,185,129,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,185,129,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+}
+
+/* GLOW */
+body::after {
+    content: "";
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(16,185,129,0.15), transparent 60%);
+    animation: floatGlow 8s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes floatGlow {
+    from { transform: translate(0,0); }
+    to { transform: translate(200px, 150px); }
 }
 
 /* TERMINAL */
@@ -105,7 +64,7 @@ body {
     white-space: pre-line;
 }
 
-/* MAIN CONTENT */
+/* MAIN */
 #mainContent {
     display: none;
 }
@@ -142,14 +101,60 @@ section {
     margin-top: 20px;
 }
 
+/* BADGE */
+.cyber-badge {
+    border: 1px solid rgba(16,185,129,0.4);
+    box-shadow: 0 0 20px rgba(16,185,129,0.15);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.badge-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: #0a0f1f;
+    color: #10b981;
+    font-size: 12px;
+}
+
+.status {
+    color: #10b981;
+}
+
+.badge-body {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.badge-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #10b981;
+}
+
+.badge-tags span {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3);
+}
+
 /* CAROUSEL */
 .carousel {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     overflow-x: auto;
+    padding-bottom: 10px;
 }
 
-/* FLIP CARDS */
+/* FLIP */
 .flip-card {
     width: 260px;
     height: 260px;
@@ -160,9 +165,9 @@ section {
 .flip-inner {
     width: 100%;
     height: 100%;
-    position: relative;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+    position: relative;
 }
 
 .flip-card.active .flip-inner {
@@ -193,8 +198,8 @@ section {
 /* VIDEO */
 video {
     width: 100%;
-    margin-top: 10px;
     border-radius: 8px;
+    margin-top: 10px;
 }
 
 /* BUTTON */
@@ -212,7 +217,6 @@ video {
 .pdf {
     width: 100%;
     height: 500px;
-    margin-top: 10px;
     border: none;
 }
 
@@ -226,10 +230,9 @@ footer {
 
 <body>
 
-<!-- TERMINAL INTRO -->
+<!-- TERMINAL -->
 <div id="terminal"></div>
 
-<!-- MAIN SITE -->
 <div id="mainContent">
 
 <nav>
@@ -246,32 +249,27 @@ footer {
 
 <div class="card cyber-badge">
 
-    <div class="badge-header">
-        <span>SECURE ACCESS PROFILE</span>
-        <span class="status">● ACTIVE</span>
-    </div>
+<div class="badge-header">
+<span>SECURE ACCESS PROFILE</span>
+<span class="status">● ACTIVE</span>
+</div>
 
-    <div class="badge-body">
+<div class="badge-body">
 
-        <img src="./Headshot.jpg" class="badge-photo">
+<img src="./headshot.jpg" class="badge-photo">
 
-        <div class="badge-info">
-            <h3>Rebekah Cheyenne Conner</h3>
-            <p class="role">Cybersecurity & Digital Forensics Student</p>
+<div>
+<h3>Rebekah Cheyenne Conner</h3>
+<p>Cybersecurity & Digital Forensics Student</p>
 
-            <p>
-                Focused on secure systems, digital investigations, and defensive security practices.
-                Passionate about protecting data and analyzing cyber threats.
-            </p>
+<div class="badge-tags">
+<span>Secure Systems</span>
+<span>Digital Forensics</span>
+<span>IT Security</span>
+</div>
 
-            <div class="badge-tags">
-                <span>Secure Systems</span>
-                <span>Digital Forensics</span>
-                <span>IT Security</span>
-            </div>
-        </div>
-
-    </div>
+</div>
+</div>
 </div>
 </section>
 
@@ -281,60 +279,44 @@ footer {
 
 <div class="carousel">
 
-<!-- ENCRYPTION -->
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
-
 <div class="flip-front">
-<img src="secure-message.jpg">
+<img src="./secure-message.jpg">
 </div>
-
 <div class="flip-back">
 <h3>Encryption Project</h3>
-<p>Secure encryption and decryption system with strong error handling.</p>
+<p>Secure encryption system with error handling.</p>
+</div>
+</div>
 </div>
 
-</div>
-</div>
-
-<!-- DATA STRUCTURES -->
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
-
 <div class="flip-front">
-<img src="tree-map.jpg">
+<img src="./tree-map.jpg">
 </div>
-
 <div class="flip-back">
 <h3>Data Structures</h3>
-<p>Implemented stacks and trees for efficient data handling.</p>
+<p>Stacks and trees implementation.</p>
+</div>
+</div>
 </div>
 
-</div>
-</div>
-
-<!-- UX PROJECT WITH VIDEO -->
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
-
 <div class="flip-front">
-<img src="ux-frames.jpg">
+<img src="./ux-frames.jpg">
 </div>
-
 <div class="flip-back">
-<h3>UX Website Project</h3>
-
-<p>
-Designed a user-focused website with wireframes and usability testing.
-</p>
+<h3>UX Project</h3>
+<p>Wireframes and usability testing.</p>
 
 <video controls>
-<source src="ux-recording.mp4" type="video/mp4">
-
+<source src="./ux-recording.mp4" type="video/mp4">
 </video>
 
 </div>
-
 </div>
 </div>
 
@@ -345,12 +327,7 @@ Designed a user-focused website with wireframes and usability testing.
 <section id="resume">
 <h2>Resume</h2>
 <div class="card">
-
-<!-- Upload resume.pdf to your repo -->
-<a href="resume.pdf" target="_blank" class="btn">
-Download Resume
-</a>
-
+<a href="./resume.pdf" class="btn" target="_blank">Download Resume</a>
 </div>
 </section>
 
@@ -359,20 +336,13 @@ Download Resume
 <h2>Research Papers</h2>
 
 <div class="card">
-  <h3>Paper 1</h3>
-
-  <p>Research paper on cybersecurity concepts and analysis.</p>
-
-  <a href="finalassignment.docx" target="_blank" class="btn">
-    Download Word Document
-  </a>
+<h3>Paper 1</h3>
+<a href="./finalassignment.docx" class="btn" target="_blank">Download Word Doc</a>
 </div>
 
 <div class="card">
 <h3>Paper 2</h3>
-
-<iframe src="paper2.pdf" class="pdf"></iframe>
-
+<iframe src="./paper2.pdf" class="pdf"></iframe>
 </div>
 
 </section>
@@ -383,21 +353,15 @@ Download Resume
 <div class="card">
 
 <p>Email:
-<a href="mailto:cheyenneconner54@gmail.com">
-cheyenneconner54@gmail.com
-</a>
+<a href="mailto:cheyenneconner54@gmail.com">Click to Email</a>
 </p>
 
 <p>LinkedIn:
-<a href="https://www.linkedin.com/in/cheyenne-conner-829105340" target="_blank">
-View Profile
-</a>
+<a href="https://www.linkedin.com/in/cheyenne-conner-829105340" target="_blank">View</a>
 </p>
 
 <p>GitHub:
-<a href="https://github.com/Rconner-03" target="_blank">
-View GitHub
-</a>
+<a href="https://github.com/Rconner-03" target="_blank">View</a>
 </p>
 
 </div>
@@ -410,41 +374,38 @@ View GitHub
 </div>
 
 <script>
-/* TERMINAL INTRO */
 const text = [
-"> Initializing Portfolio...",
-"> Loading Cybersecurity Modules...",
-"> Access Granted...",
-"> Welcome Rebekah Conner"
+"> Initializing...",
+"> Loading Modules...",
+"> Access Granted",
+"> Welcome"
 ];
 
-let i = 0, j = 0, current = "";
+let i=0,j=0,current="";
 
 function type(){
-    if(i < text.length){
-        if(j < text[i].length){
-            current += text[i][j];
-            document.getElementById("terminal").innerText = current;
-            j++;
-            setTimeout(type, 40);
-        } else {
-            current += "\\n";
-            i++;
-            j = 0;
-            setTimeout(type, 400);
-        }
-    } else {
-        setTimeout(() => {
-            document.getElementById("terminal").style.display = "none";
-            document.getElementById("mainContent").style.display = "block";
-        }, 800);
-    }
+if(i<text.length){
+if(j<text[i].length){
+current+=text[i][j];
+document.getElementById("terminal").innerText=current;
+j++;
+setTimeout(type,40);
+}else{
+current+="\n";
+i++;j=0;
+setTimeout(type,400);
+}
+}else{
+setTimeout(()=>{
+document.getElementById("terminal").style.display="none";
+document.getElementById("mainContent").style.display="block";
+},800);
+}
 }
 type();
 
-/* FLIP CARD */
 function flip(card){
-    card.classList.toggle("active");
+card.classList.toggle("active");
 }
 </script>
 
