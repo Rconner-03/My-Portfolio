@@ -9,136 +9,120 @@
 :root {
     --bg: #0b1220;
     --card: #111a2e;
-    --card2: #0f1b33;
     --text: #d1d5db;
     --emerald: #10b981;
-    --silver: #cbd5e1;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
+/* GLOBAL */
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: monospace;
     background: var(--bg);
     color: var(--text);
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 40px;
-    border-bottom: 2px solid var(--emerald);
+/* TERMINAL */
+#terminal {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: var(--emerald);
+    font-size: 1.2rem;
+    white-space: pre-line;
 }
 
-header h1 {
-    color: var(--emerald);
+/* MAIN CONTENT */
+#mainContent {
+    display: none;
 }
 
 /* NAV */
 nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: #0f172a;
+    text-align: center;
     padding: 10px;
-    position: sticky;
-    top: 0;
+    background: #020617;
 }
 
 nav a {
-    margin: 8px 12px;
+    color: white;
+    margin: 10px;
     text-decoration: none;
-    color: var(--text);
-    font-weight: bold;
 }
 
 nav a:hover {
     color: var(--emerald);
 }
 
-/* SECTION */
+/* SECTIONS */
 section {
-    padding: 50px 20px;
+    padding: 40px;
     max-width: 1000px;
     margin: auto;
-}
-
-h2 {
-    color: var(--emerald);
-    margin-bottom: 20px;
 }
 
 /* CARD */
 .card {
     background: var(--card);
     padding: 20px;
-    border-radius: 12px;
-    margin-top: 15px;
-}
-
-/* ABOUT */
-.about-flex {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.about-flex img {
-    width: 220px;
     border-radius: 10px;
-    border: 2px solid var(--emerald);
+    margin-top: 20px;
 }
 
 /* CAROUSEL */
 .carousel {
     display: flex;
+    gap: 20px;
     overflow-x: auto;
-    gap: 15px;
 }
 
-.project {
-    min-width: 280px;
-    background: var(--card2);
-    padding: 15px;
-    border-radius: 10px;
+/* FLIP CARDS */
+.flip-card {
+    width: 260px;
+    height: 260px;
+    perspective: 1000px;
     cursor: pointer;
 }
 
-.project:hover {
-    border: 1px solid var(--emerald);
-}
-
-.project img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
+.flip-inner {
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
 }
 
-.modal-content {
-    background: var(--card);
-    padding: 20px;
+.flip-card.active .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     border-radius: 10px;
-    width: 80%;
 }
 
-.close {
-    float: right;
-    cursor: pointer;
+.flip-front img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.flip-back {
+    background: var(--card);
+    transform: rotateY(180deg);
+    padding: 15px;
+    overflow-y: auto;
+}
+
+/* VIDEO */
+video {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
 }
 
 /* BUTTON */
@@ -147,17 +131,17 @@ h2 {
     padding: 10px 15px;
     background: var(--emerald);
     color: black;
-    border-radius: 8px;
     text-decoration: none;
+    border-radius: 5px;
     font-weight: bold;
 }
 
-/* PDF EMBED */
+/* PDF */
 .pdf {
     width: 100%;
     height: 500px;
-    border: none;
     margin-top: 10px;
+    border: none;
 }
 
 /* FOOTER */
@@ -170,16 +154,15 @@ footer {
 
 <body>
 
-<header>
-<h1>Rebekah Cheyenne Conner</h1>
-<p>Cybersecurity & Digital Forensics</p>
-</header>
+<!-- TERMINAL INTRO -->
+<div id="terminal"></div>
+
+<!-- MAIN SITE -->
+<div id="mainContent">
 
 <nav>
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-<a href="#tools">Tools</a>
 <a href="#resume">Resume</a>
 <a href="#papers">Papers</a>
 <a href="#contact">Contact</a>
@@ -188,62 +171,78 @@ footer {
 <!-- ABOUT -->
 <section id="about">
 <h2>About</h2>
-<div class="card about-flex">
-<img src="Headshot.jpg">
+<div class="card">
 <p>
-Cybersecurity and Digital Forensics student focused on secure systems,
-problem-solving, and protecting digital environments. My goal is to
-work in cybersecurity analysis and digital investigations.
+Cybersecurity and Digital Forensics student focused on protecting systems,
+solving complex problems, and analyzing digital threats.
 </p>
+<img src="headshot.jpg" width="200">
 </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-<h2>Projects</h2>
+<h2>Projects (Click to Flip)</h2>
 
 <div class="carousel">
 
-<div class="project" onclick="openModal('Encryption Project','Secure encryption/decryption system.','images/SecureMessageEncoderCode.jpg')">
-<h3>Encryption</h3>
-<img src="images/SecureMessageEncoderCode.jpg">
+<!-- ENCRYPTION -->
+<div class="flip-card" onclick="flip(this)">
+<div class="flip-inner">
+
+<div class="flip-front">
+<img src="images/secure-code.jpg">
 </div>
 
-<div class="project" onclick="openModal('Data Structures','Trees and stacks implementation.','images/TreeMapCode.jpg')">
+<div class="flip-back">
+<h3>Encryption Project</h3>
+<p>Secure encryption and decryption system with strong error handling.</p>
+</div>
+
+</div>
+</div>
+
+<!-- DATA STRUCTURES -->
+<div class="flip-card" onclick="flip(this)">
+<div class="flip-inner">
+
+<div class="flip-front">
+<img src="images/tree-map.jpg">
+</div>
+
+<div class="flip-back">
 <h3>Data Structures</h3>
-<img src="images/TreeMapCode.jpg">
-</div>
-
-<div class="project" onclick="openModal('UX Design','Website design and usability testing.','ux website frames.jpg')">
-<h3>UX Design</h3>
-<img src="ux website frames.jpg">
+<p>Implemented stacks and trees for efficient data handling.</p>
 </div>
 
 </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-<h2>Skills</h2>
-<div class="card">
-<ul>
-<li>Secure Coding</li>
-<li>Encryption</li>
-<li>Data Structures</li>
-<li>Debugging</li>
-</ul>
 </div>
-</section>
 
-<!-- TOOLS -->
-<section id="tools">
-<h2>Tools</h2>
-<div class="card">
-<ul>
-<li>Java</li>
-<li>HTML/CSS</li>
-<li>GitHub</li>
-</ul>
+<!-- UX PROJECT WITH VIDEO -->
+<div class="flip-card" onclick="flip(this)">
+<div class="flip-inner">
+
+<div class="flip-front">
+<img src="ux-frames.jpg">
+</div>
+
+<div class="flip-back">
+<h3>UX Website Project</h3>
+
+<p>
+Designed a user-focused website with wireframes and usability testing.
+</p>
+
+<video controls>
+<source src="ux-recording.mp4" type="video/mp4">
+Your browser does not support video.
+</video>
+
+</div>
+
+</div>
+</div>
+
 </div>
 </section>
 
@@ -251,12 +250,10 @@ work in cybersecurity analysis and digital investigations.
 <section id="resume">
 <h2>Resume</h2>
 <div class="card">
-<p>Download my resume:</p>
 
-<!-- PUT YOUR RESUME FILE IN YOUR REPO -->
-<!-- Example: upload "resume.pdf" to GitHub and keep this name -->
+<!-- Upload resume.pdf to your repo -->
 <a href="resume.pdf" target="_blank" class="btn">
-View Resume
+Download Resume
 </a>
 
 </div>
@@ -269,15 +266,9 @@ View Resume
 <div class="card">
 <h3>Paper 1</h3>
 
-<!-- ===============================
-HOW TO ADD YOUR PDF:
-1. Upload your PDF file to your GitHub repo
-2. Replace "paper1.pdf" with your file name
-3. Keep it in same folder OR adjust path
-
-EXAMPLE:
-<iframe src="myCyberPaper.pdf" class="pdf"></iframe>
-================================ -->
+<!-- HOW TO USE:
+1. Upload PDF to GitHub
+2. Replace file name below -->
 
 <iframe src="paper1.pdf" class="pdf"></iframe>
 
@@ -285,8 +276,6 @@ EXAMPLE:
 
 <div class="card">
 <h3>Paper 2</h3>
-
-<!-- SAME INSTRUCTIONS AS ABOVE -->
 
 <iframe src="paper2.pdf" class="pdf"></iframe>
 
@@ -298,9 +287,25 @@ EXAMPLE:
 <section id="contact">
 <h2>Contact</h2>
 <div class="card">
-<p>Email: cheyenneconner54@gmail.com</p>
-<p>LinkedIn: linkedin.com/in/cheyenne-conner-829105340</p>
-<p>GitHub: github.com/Rconner-03</p>
+
+<p>Email:
+<a href="mailto:cheyenneconner54@gmail.com">
+cheyenneconner54@gmail.com
+</a>
+</p>
+
+<p>LinkedIn:
+<a href="https://www.linkedin.com/in/cheyenne-conner-829105340" target="_blank">
+View Profile
+</a>
+</p>
+
+<p>GitHub:
+<a href="https://github.com/Rconner-03" target="_blank">
+View GitHub
+</a>
+</p>
+
 </div>
 </section>
 
@@ -308,26 +313,44 @@ EXAMPLE:
 © 2026 Rebekah Conner
 </footer>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">X</span>
-<h2 id="modalTitle"></h2>
-<p id="modalText"></p>
-<img id="modalImg" style="width:100%;">
-</div>
 </div>
 
 <script>
-function openModal(title, text, img){
-document.getElementById("modal").style.display="flex";
-document.getElementById("modalTitle").innerText=title;
-document.getElementById("modalText").innerText=text;
-document.getElementById("modalImg").src=img;
-}
+/* TERMINAL INTRO */
+const text = [
+"> Initializing Portfolio...",
+"> Loading Cybersecurity Modules...",
+"> Access Granted...",
+"> Welcome Rebekah Conner"
+];
 
-function closeModal(){
-document.getElementById("modal").style.display="none";
+let i = 0, j = 0, current = "";
+
+function type(){
+    if(i < text.length){
+        if(j < text[i].length){
+            current += text[i][j];
+            document.getElementById("terminal").innerText = current;
+            j++;
+            setTimeout(type, 40);
+        } else {
+            current += "\\n";
+            i++;
+            j = 0;
+            setTimeout(type, 400);
+        }
+    } else {
+        setTimeout(() => {
+            document.getElementById("terminal").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+        }, 800);
+    }
+}
+type();
+
+/* FLIP CARD */
+function flip(card){
+    card.classList.toggle("active");
 }
 </script>
 
