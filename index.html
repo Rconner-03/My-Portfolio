@@ -22,7 +22,7 @@ body {
     overflow-x: hidden;
 }
 
-/* CYBER GRID */
+/* CYBER BACKGROUND */
 body::before {
     content: "";
     position: fixed;
@@ -101,73 +101,6 @@ section {
     margin-top: 20px;
 }
 
-/* BADGE */
-.cyber-badge {
-    border: 1px solid rgba(16,185,129,0.4);
-    box-shadow: 0 0 20px rgba(16,185,129,0.15);
-    border-radius: 14px;
-    overflow: hidden;
-}
-
-.badge-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background: #0a0f1f;
-    color: #10b981;
-    font-size: 12px;
-}
-
-.badge-body {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap;
-}
-
-.badge-photo {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid #10b981;
-}
-
-/* OVERLAY */
-.flip-front {
-    position: relative;
-    overflow: hidden;
-}
-
-.flip-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.65);
-    color: #10b981;
-    padding: 10px;
-    text-align: center;
-}
-
-.image-overlay h3 {
-    margin: 0;
-    font-size: 14px;
-}
-
-.image-overlay p {
-    margin: 3px 0 0;
-    font-size: 12px;
-    color: #d1d5db;
-}
-
 /* CAROUSEL */
 .carousel {
     display: flex;
@@ -204,6 +137,43 @@ section {
     border-radius: 10px;
 }
 
+/* IMAGE */
+.flip-front {
+    position: relative;
+    overflow: hidden;
+}
+
+.flip-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* OVERLAY TEXT */
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.65);
+    color: #10b981;
+    padding: 10px;
+    text-align: center;
+}
+
+.image-overlay h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.image-overlay p {
+    margin: 3px 0 0;
+    font-size: 12px;
+    color: #d1d5db;
+}
+
+/* BACK SIDE */
 .flip-back {
     background: var(--card);
     transform: rotateY(180deg);
@@ -252,29 +222,17 @@ footer {
 <a href="#contact">Contact</a>
 </nav>
 
+<!-- ABOUT -->
 <section id="about">
 <h2>About</h2>
-<div class="card cyber-badge">
-
-<div class="badge-header">
-<span>SECURE ACCESS PROFILE</span>
-<span>● ACTIVE</span>
-</div>
-
-<div class="badge-body">
-<img src="./headshot.jpg" class="badge-photo">
-
-<div>
-<h3>Rebekah Cheyenne Conner</h3>
+<div class="card">
 <p>
-Cybersecurity & Digital Forensics student focused on secure systems, threat analysis, and digital investigations.
+Cybersecurity & Digital Forensics student focused on secure systems, threat analysis, and cyber defense.
 </p>
-</div>
-
-</div>
 </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
 <div class="card">
 <ul>
@@ -287,19 +245,21 @@ Cybersecurity & Digital Forensics student focused on secure systems, threat anal
 </div>
 </section>
 
+<!-- EDUCATION -->
 <section id="education">
 <div class="card">
-<p>Bachelor of Science in Information Technology</p>
+<p>Bachelor of Science in IT</p>
 <p>Cybersecurity & Digital Forensics</p>
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
-
 <h2>Projects</h2>
 
 <div class="carousel">
 
+<!-- ENCRYPTION -->
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
 <div class="flip-front">
@@ -312,6 +272,7 @@ Cybersecurity & Digital Forensics student focused on secure systems, threat anal
 </div>
 </div>
 
+<!-- DATA STRUCTURES -->
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
 <div class="flip-front">
@@ -324,7 +285,7 @@ Cybersecurity & Digital Forensics student focused on secure systems, threat anal
 </div>
 </div>
 
-<!-- UX IMAGE CARD -->
+<!-- UX IMAGE -->
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
 <div class="flip-front">
@@ -335,44 +296,50 @@ Cybersecurity & Digital Forensics student focused on secure systems, threat anal
 </div>
 </div>
 <div class="flip-back">
-<p>UX design project focused on usability.</p>
+<p>UX design focused on user experience and accessibility.</p>
 </div>
 </div>
 </div>
 
-<!-- UX VIDEO CARD -->
+<!-- UX VIDEO (FIXED) -->
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
+
 <div class="flip-front">
 <img src="./ux-homeless.jpg">
 <div class="image-overlay">
-<h3>UX Video</h3>
-<p>Full walkthrough demo</p>
+<h3>UX Video Walkthrough</h3>
+<p>Full usability demonstration</p>
 </div>
 </div>
+
 <div class="flip-back">
 <video controls>
 <source src="./ux-recording.mp4" type="video/mp4">
 </video>
 </div>
+
 </div>
 </div>
 
 </div>
 </section>
 
+<!-- RESUME -->
 <section id="resume">
 <div class="card">
 <a class="btn" href="./resume_it.docx" target="_blank">Download Resume</a>
 </div>
 </section>
 
+<!-- PAPER -->
 <section id="paper">
 <div class="card">
 <a class="btn" href="./finalassignment.docx" target="_blank">Download Paper</a>
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
 <div class="card">
 <p>Email: <a href="mailto:cheyenneconner54@gmail.com">Click</a></p>
@@ -380,7 +347,9 @@ Cybersecurity & Digital Forensics student focused on secure systems, threat anal
 </div>
 </section>
 
-<footer>© 2026 Rebekah Conner</footer>
+<footer>
+© 2026 Rebekah Conner
+</footer>
 
 </div>
 
