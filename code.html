@@ -12,40 +12,6 @@
     --text: #d1d5db;
     --emerald: #10b981;
 }
-    .flip-front {
-    position: relative;
-    overflow: hidden;
-}
-
-.flip-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* TEXT OVER IMAGE */
-.image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.65);
-    color: #10b981;
-    padding: 10px;
-    text-align: center;
-}
-
-.image-overlay h3 {
-    margin: 0;
-    font-size: 14px;
-}
-
-.image-overlay p {
-    margin: 3px 0 0;
-    font-size: 12px;
-    color: #d1d5db;
-}
 
 /* GLOBAL */
 body {
@@ -68,7 +34,7 @@ body::before {
     z-index: -1;
 }
 
-/* GLOW */
+/* GLOW EFFECT */
 body::after {
     content: "";
     position: fixed;
@@ -152,10 +118,6 @@ section {
     font-size: 12px;
 }
 
-.status {
-    color: #10b981;
-}
-
 .badge-body {
     display: flex;
     gap: 20px;
@@ -171,13 +133,39 @@ section {
     border: 2px solid #10b981;
 }
 
-.badge-tags span {
-    display: inline-block;
-    margin-right: 5px;
-    padding: 5px 8px;
-    border-radius: 6px;
-    background: rgba(16,185,129,0.1);
-    border: 1px solid rgba(16,185,129,0.3);
+/* OVERLAY */
+.flip-front {
+    position: relative;
+    overflow: hidden;
+}
+
+.flip-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.65);
+    color: #10b981;
+    padding: 10px;
+    text-align: center;
+}
+
+.image-overlay h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.image-overlay p {
+    margin: 3px 0 0;
+    font-size: 12px;
+    color: #d1d5db;
 }
 
 /* CAROUSEL */
@@ -188,7 +176,7 @@ section {
     padding-bottom: 10px;
 }
 
-/* FLIP */
+/* FLIP CARD */
 .flip-card {
     width: 260px;
     height: 260px;
@@ -216,43 +204,19 @@ section {
     border-radius: 10px;
 }
 
-.flip-front img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-
 .flip-back {
     background: var(--card);
     transform: rotateY(180deg);
     padding: 15px;
     overflow-y: auto;
 }
-.flip-back {
-    padding: 18px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
 
-.flip-back h3 {
-    margin-left: 8px;
-}
-
-.flip-back p {
-    margin-left: 8px;
-}
 /* VIDEO */
 video {
     width: 100%;
     border-radius: 8px;
-    margin-top: 10px;
 }
-.flip-back video {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid rgba(16,185,129,0.4);
-    box-shadow: 0 0 15px rgba(16,185,129,0.25);
-}
+
 /* BUTTON */
 .btn {
     display: inline-block;
@@ -262,13 +226,6 @@ video {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-}
-
-/* PDF */
-.pdf {
-    width: 100%;
-    height: 500px;
-    border: none;
 }
 
 /* FOOTER */
@@ -281,118 +238,77 @@ footer {
 
 <body>
 
-<!-- TERMINAL -->
 <div id="terminal"></div>
 
 <div id="mainContent">
+
 <nav>
 <a href="#about">About</a>
-<a href="#skills">Technical Skills</a>
+<a href="#skills">Skills</a>
 <a href="#education">Education</a>
 <a href="#projects">Projects</a>
-<a href="#accomplishments">Accomplishments</a>
 <a href="#resume">Resume</a>
 <a href="#paper">Paper</a>
 <a href="#contact">Contact</a>
 </nav>
-<!-- ABOUT -->
+
 <section id="about">
 <h2>About</h2>
-
 <div class="card cyber-badge">
 
 <div class="badge-header">
 <span>SECURE ACCESS PROFILE</span>
-<span class="status">● ACTIVE</span>
+<span>● ACTIVE</span>
 </div>
 
 <div class="badge-body">
-
 <img src="./headshot.jpg" class="badge-photo">
 
 <div>
 <h3>Rebekah Cheyenne Conner</h3>
-
 <p>
-I am Rebekah Cheyenne Conner, a Bachelor of Science in Information Technology student
-with a concentration in Cybersecurity and Digital Forensics. I am building a strong
-foundation in secure systems, network defense, and digital investigation techniques.
-
-My academic journey has focused on developing technical skills in secure coding,
-data structures, system analysis, and cybersecurity principles. I am passionate about
-protecting digital environments and pursuing a career as a Cybersecurity Analyst or
-Digital Forensics Specialist.
-
-My long-term goal is to contribute to cybercrime investigation and digital evidence
-analysis, working alongside security teams and forensic professionals.
+Cybersecurity & Digital Forensics student focused on secure systems, threat analysis, and digital investigations.
 </p>
-
-<div class="badge-tags">
-<span>Secure Systems</span>
-<span>Digital Forensics</span>
-<span>IT Security</span>
 </div>
 
-</div>
 </div>
 </div>
 </section>
 
-    <section id="skills">
-<h2>Technical Skills</h2>
-
+<section id="skills">
 <div class="card">
 <ul>
-    <li>Secure Coding & Software Development Fundamentals</li>
-    <li>Encryption & Basic Cryptography Concepts</li>
-    <li>Data Structures & Algorithm Design</li>
-    <li>Cybersecurity Principles & Threat Awareness</li>
-    <li>Digital Forensics Fundamentals</li>
-    <li>HTML, CSS, and Web Development</li>
-    <li>Debugging and Problem Solving</li>
+<li>Cybersecurity Fundamentals</li>
+<li>Secure Coding</li>
+<li>Digital Forensics</li>
+<li>Data Structures</li>
+<li>HTML/CSS</li>
 </ul>
 </div>
 </section>
-    
-<section id="education">
-<h2>Education</h2>
 
+<section id="education">
 <div class="card">
-<p><strong>Bachelor of Science in Information Technology</strong></p>
-<p>Concentration: Cybersecurity & Digital Forensics</p>
-<p>Currently In Progress</p>
-<p> Graduation Date: May 2nd, 2026 </p>
-<p> One academic accomplishment I am most proud of is making the Dean's List for Fall of 2025. </p>
-<p>
-Coursework includes:
-Secure Coding, Data Structures, Cybersecurity Fundamentals,
-Network Security, and Digital Forensics Concepts.
-</p>
+<p>Bachelor of Science in Information Technology</p>
+<p>Cybersecurity & Digital Forensics</p>
 </div>
 </section>
-    
-<!-- PROJECTS -->
+
 <section id="projects">
+
 <h2>Projects</h2>
 
 <div class="carousel">
 
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
-
 <div class="flip-front">
 <img src="./secure-message.jpg">
 </div>
-
-<div class="flip-back" style="padding-left: 40px; padding-right: 25px;">
-<h3 style="margin-left: 40px;">Encryption Project</h3>
-
-<p style="margin-left: 40px;">
-Secure encryption and decryption system with strong error handling and logic-based protection methods.
-</p>
-
+<div class="flip-back">
+<h3>Encryption Project</h3>
+<p>Secure encryption system with error handling.</p>
 </div>
-
 </div>
 </div>
 
@@ -408,130 +324,72 @@ Secure encryption and decryption system with strong error handling and logic-bas
 </div>
 </div>
 
-  <div class="flip-card" onclick="flip(this)">
-<div class="flip-inner">
-
-<!-- FRONT -->
-<div class="flip-front">
-<img src="./ux-frames.jpg">
-</div>
-
-<!-- BACK -->
-<div class="flip-back">
-
-<h3>UX Website Project</h3>
-
-<p>
-Wireframes, usability testing, and user-centered design for accessibility and workflow optimization.
-</p>
-
-</div>
-
-</div>
-</div>  
+<!-- UX IMAGE CARD -->
 <div class="flip-card" onclick="flip(this)">
 <div class="flip-inner">
-
-<!-- FRONT -->
 <div class="flip-front">
-    <img src="./ux-homeless.jpg" alt="UX Project">
-
-    <div class="image-overlay">
-        <h3>UX Design Video Walkthrough</h3>
-        <p>Wireframes, user flow, and usability testing process</p>
-    </div>
+<img src="./ux-frames.jpg">
+<div class="image-overlay">
+<h3>UX Project</h3>
+<p>Wireframes & usability testing</p>
 </div>
-
-<!-- BACK (VIDEO ONLY - UNCHANGED) -->
+</div>
 <div class="flip-back">
+<p>UX design project focused on usability.</p>
+</div>
+</div>
+</div>
 
-    <video controls>
-        <source src="./ux-recording.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
+<!-- UX VIDEO CARD -->
+<div class="flip-card" onclick="flip(this)">
+<div class="flip-inner">
+<div class="flip-front">
+<img src="./ux-homeless.jpg">
+<div class="image-overlay">
+<h3>UX Video</h3>
+<p>Full walkthrough demo</p>
+</div>
+</div>
+<div class="flip-back">
+<video controls>
+<source src="./ux-recording.mp4" type="video/mp4">
+</video>
+</div>
+</div>
 </div>
 
 </div>
-</div>
-    
 </section>
 
-   <section id="accomplishments">
-<h2>Accomplishments</h2>
-
-<div class="card">
-<ul>
-    <li>Completed hands-on projects in encryption, data structures, and secure coding practices</li>
-    <li>Built and deployed a personal cybersecurity portfolio using HTML, CSS, and GitHub Pages</li>
-    <li>Developed understanding of digital forensics concepts and investigative techniques</li>
-    <li>Applied problem-solving skills in algorithm design and debugging complex code</li>
-    <li>Gained experience in UX design through wireframing and usability testing projects</li>
-</ul>
-</div>
-</section>
-    
-<!-- RESUME -->
 <section id="resume">
-<h2>Resume</h2>
 <div class="card">
-<a href="./resume_it.docx" class="btn" target="_blank">Download Resume</a>
+<a class="btn" href="./resume_it.docx" target="_blank">Download Resume</a>
 </div>
 </section>
-    
-<!-- Cover Letter -->
-<section id="coverletter">
-<h2>Cover Letter</h2>
-<div class="card">
-<a href="./coverletter.docx" class="btn" target="_blank">Download Cover Letter</a>
-</div>
-</section>
-<!-- PAPERS -->
+
 <section id="paper">
-<h2>Research Paper</h2>
-
 <div class="card">
-<h3>Network Security/Cryptography</h3>
-    <p> For More Papers go to Linkedin </p>
-<a href="./finalassignment.docx" class="btn" target="_blank">Download Word Doc</a>
+<a class="btn" href="./finalassignment.docx" target="_blank">Download Paper</a>
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-<h2>Contact</h2>
 <div class="card">
-
-<p>Email:
-<a href="mailto:cheyenneconner54@gmail.com">Click to Email</a>
-</p>
-
-<p>LinkedIn:
-<a href="https://www.linkedin.com/in/cheyenne-conner-829105340" target="_blank">View</a>
-</p>
-
-<p>GitHub:
-<a href="https://github.com/Rconner-03" target="_blank">View</a>
-</p>
-
-<p> Figma: 
-<a href="https://www.figma.com/proto/SDn6Q6JT2hIO1zobX46sII/Social-Justice-Advocacy-Website?node-id=0-1&t=iOoLHFNVNAnCm3tv-1" target=" _blank">View</a>
-</p>
+<p>Email: <a href="mailto:cheyenneconner54@gmail.com">Click</a></p>
+<p>GitHub: <a href="https://github.com/Rconner-03">Link</a></p>
 </div>
 </section>
 
-<footer>
-© 2026 Rebekah Conner
-</footer>
+<footer>© 2026 Rebekah Conner</footer>
 
 </div>
 
 <script>
-const text = [
+const text=[
 "> Initializing...",
 "> Loading Portfolio...",
 "> Access Granted",
-"> Welcome   Rebekah Conner"
+"> Welcome"
 ];
 
 let i=0,j=0,current="";
