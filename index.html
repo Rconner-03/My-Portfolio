@@ -18,6 +18,42 @@ body {
     font-family: monospace;
     background: radial-gradient(circle at top, #0f172a, #050814);
     color: var(--text);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* GRID OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* SCANLINES */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.02) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+section, nav, footer {
+    position: relative;
+    z-index: 1;
 }
 
 /* NAV */
@@ -44,10 +80,20 @@ section {
 
 /* CARD */
 .card {
-    background: var(--card);
+    background: rgba(17, 26, 46, 0.92);
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
+    border: 1px solid rgba(16,185,129,0.15);
+}
+
+/* BADGE */
+.badge-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid var(--emerald);
 }
 
 /* CAROUSEL */
@@ -55,42 +101,6 @@ section {
     display: flex;
     gap: 25px;
     overflow-x: auto;
-}
-
-/* FLIP CARD */
-.flip-card {
-    width: 260px;
-    height: 260px;
-    perspective: 1000px;
-    cursor: pointer;
-}
-.flip-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    position: relative;
-}
-.flip-card.active .flip-inner {
-    transform: rotateY(180deg);
-}
-.flip-front, .flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-}
-.flip-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.flip-back {
-    background: var(--card);
-    transform: rotateY(180deg);
-    padding: 15px;
-    overflow-y: auto;
 }
 
 /* BUTTON */
@@ -103,84 +113,69 @@ section {
     border-radius: 5px;
     margin-top: 10px;
 }
-
-/* FILE LINKS */
-.file-links {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-.file-links a {
-    border: 1px solid var(--emerald);
-    padding: 5px;
-    text-align: center;
-    color: var(--emerald);
-    text-decoration: none;
-}
-.file-links a:hover {
-    background: var(--emerald);
-    color: black;
-}
 </style>
 </head>
 
 <body>
 
 <nav>
-<a href="#about">About</a> 
-    <a href="#skills">Skills</a> 
-    <a href="#tools">Tools</a> 
-    <a href="#education">Education</a> 
-    <a href="certifications">Certifications</a> 
-    <a href="#projects">Projects</a> 
-    <a href="#accomplishments">Accomplishments</a> 
-    <a href="#resume">Resume</a> 
-    <a href="#hireme">Why Hire Me</a> 
-    <a href="#contact">Contact</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#tools">Tools</a>
+<a href="#education">Education</a>
+<a href="certifications">Certifications</a>
+<a href="#projects">Projects</a>
+<a href="#accomplishments">Accomplishments</a>
+<a href="#resume">Resume</a>
+<a href="#hireme">Why Hire Me</a>
+<a href="#contact">Contact</a>
 </nav>
 
-<section id="about"> 
-    <h2>About</h2> 
-    <div class="card cyber-badge"> 
-        <div class="badge-header"> 
-            <span>SECURE ACCESS PROFILE</span> <span>● ACTIVE</span> </div> 
-        <div class="badge-body"> <img src="./headshot.jpg" class="badge-photo"> <div> <h3>Rebekah Cheyenne Conner</h3> 
-            <p> I am Rebekah Cheyenne Conner, a Bachelor of Science in Information Technology student with a 
-                concentration in Cybersecurity and Digital Forensics. I am building a strong foundation in secure systems, network defense, and digital investigation techniques. 
-                My academic journey has focused on developing technical skills in secure coding, data structures, system analysis, and cybersecurity principles. 
-                I am passionate about protecting digital environments and pursuing a career as a Cybersecurity Analyst or Digital Forensics Specialist. 
-                My long-term goal is to contribute to cybercrime investigation and digital evidence analysis, working alongside security teams and forensic professionals. </p> </div> </div> </div> </section> 
-    
-    <section id="skills"> 
-        <h2> Technical Skills </h2> 
-        <div class="card"> <ul>
-            <li>Secure Coding & Software Development Fundamentals</li> 
-            <li>Encryption & Basic Cryptography Concepts</li> 
-            <li>Data Structures & Algorithm Design</li> 
-            <li>Cybersecurity Principles & Threat Awareness</li> 
-            <li>Digital Forensics Fundamentals</li> 
-            <li>HTML, CSS, Java and Web Development</li> 
-            <li>Debugging and Problem Solving</li> </ul> </div> 
-    </section> 
-    <section id="tools"> 
-        <h2>Tools Used</h2> 
-        <div class="card"> <p>Github</p> 
-            <p>Eclipse</p> 
-            <p>wireshark</p> 
-            <p>Jgrasp</p> 
-            <p>Autopsy</p> 
-            <p>Redline</p> 
-            <p>AzureVM</p> </div> </section> 
-    <section id="education"> <h2> Education </h2> 
-        <div class="card"> <p><strong>Bachelor of Science in Information Technology</strong></p> <p>Concentration: Cybersecurity & Digital Forensics</p> 
-            <p>Currently In Progress</p> 
-            <p> Graduation Date: May 2nd, 2026 </p> 
-            <p> One academic accomplishment I am most proud of is making the Dean's List for Fall of 2025. </p> 
-            <p> Coursework includes: Secure Coding, Data Structures, Cybersecurity Fundamentals, Network Security, and Digital Forensics Concepts. </p> </div> </section> 
-    <section id="certifications"> <h2>Certifications</h2> 
-        <div class="card"> <p> No certification yet, they are a work in progress.</p> </div> 
-    </section>
+<section id="about">
+<h2>About</h2>
+<div class="card">
+    <img src="./headshot.jpg" class="badge-photo">
+    <h3>Rebekah Cheyenne Conner</h3>
+    <p>Cybersecurity & Digital Forensics Student...</p>
+</div>
+</section>
+
+<section id="skills">
+<h2>Technical Skills</h2>
+<div class="card">
+<ul>
+<li>Secure Coding</li>
+<li>Encryption</li>
+<li>Data Structures</li>
+<li>Cybersecurity Principles</li>
+<li>Digital Forensics</li>
+<li>Web Development</li>
+</ul>
+</div>
+</section>
+
+<section id="tools">
+<h2>Tools Used</h2>
+<div class="card">
+<p>Github</p>
+<p>Eclipse</p>
+<p>Wireshark</p>
+<p>JGrasp</p>
+<p>Autopsy</p>
+<p>Redline</p>
+<p>Azure VM</p>
+</div>
+</section>
+
+<section id="education">
+<h2>Education</h2>
+<div class="card">
+<p>B.S. Information Technology</p>
+<p>Cybersecurity & Digital Forensics</p>
+<p>Graduation: May 2026</p>
+</div>
+</section>
+
 <section id="projects">
 <h2>Projects</h2>
 
@@ -188,112 +183,82 @@ section {
 
 <!-- UX Class -->
 <h2>UX/UI Design Class</h2>
-<a href="./ux-files/ux-weatherApp.pptx" target="_blank">UX-WeatherApp</a>
-<a href="./ux-files/ux-SocialJustice.mp4" target="_blank">Social Justiice Website</a>
-<a href="./ux-files/ux-colortheory.mp4" target="_blank">Color Theory Website</a>
+<a href="ux-weatherApp.pptx" target="_blank">UX-WeatherApp</a>
+<a href="ux-SocialJustice.mp4" target="_blank">Social Justiice Website</a>
+<a href="ux-colortheory.mp4" target="_blank">Color Theory Website</a>
     
     
 <!-- PROJECT MGMT -->
 <h2>Project Mangement Class</h2>
-<a href="./ux-files/ProjectMgmtCharter.docx" target="_blank">Project Charter</a>
-<a href="./ux-files/ProjectMgmtWBS.docx" target="_blank">WBS</a>
-<a href="./ux-files/ProjectMgmtGantt.xlsx" target="_blank">Gantt Chart</a>
-<a href="./ux-files/ProjectMgmtCE.xlsx" target="_blank">Cost Estimate</a>
-<a href="./ux-files/ProjectMgmtSOW.docx" target="_blank">SOW</a>
-<a href="./ux-files/ProjectMgmtFinal.pptx" target="_blank">Final Powerpoint</a>
+<a href="ProjectMgmtCharter.docx" target="_blank">Project Charter</a>
+<a href="ProjectMgmtWBS.docx" target="_blank">WBS</a>
+<a href="ProjectMgmtGantt.xlsx" target="_blank">Gantt Chart</a>
+<a href="ProjectMgmtCE.xlsx" target="_blank">Cost Estimate</a>
+<a href="ProjectMgmtSOW.docx" target="_blank">SOW</a>
+<a href="ProjectMgmtFinal.pptx" target="_blank">Final Powerpoint</a>
 
 <!-- Forensics -->
 <h2>Digital Forensics and Cryptography Classes</h2>
-<a href="./ux-files/ForensicsFinal.docx" target="_blank">Forensics Final</a>
-<a href="./ux-files/cryptography.docx" target="_blank"> Cryptography Paper</a>
-<a href="./ux-files/CoCLab-Forensics.docx" target="_blank"> Chain of Custody Lab</a>
-<a href="./ux-files/CoCimportance-Forensics.pptx" target="_blank"> Chain of Custody Importance Powerpoint</a>
+<a href="ForensicsFinal.docx" target="_blank">Forensics Final</a>
+<a href="cryptography.docx" target="_blank"> Cryptography Paper</a>
+<a href="CoCLab-Forensics.docx" target="_blank"> Chain of Custody Lab</a>
+<a href="CoCimportance-Forensics.pptx" target="_blank"> Chain of Custody Importance Powerpoint</a>
 
 <!-- Data Analytics -->
 <h2>Data Analytics Class</h2>
-<a href="./ux-files/DataAnalyticsSpread.xlsx" target="_blank"> Graphs File</a>
-<a href="./ux-files/DataAnalyticsMain.xlsx" target="_blank"> Main File</a>
-<a href="./ux-files/DataAnalyticsGantt.xlsx" target="_blank">  Gantt Chart</a>
-<a href="./ux-files/DataAnalyticsFinalReport.docx" target="_blank"> Final Report</a>
-<a href="./ux-files/DataAnalyticsFinal.pptx" target="_blank"> Final Powerpoint </a>
-
+<a href="DataAnalyticsSpread.xlsx" target="_blank"> Graphs File</a>
+<a href="DataAnalyticsMain.xlsx" target="_blank"> Main File</a>
+<a href="DataAnalyticsGantt.xlsx" target="_blank">  Gantt Chart</a>
+<a href="DataAnalyticsFinalReport.docx" target="_blank"> Final Report</a>
+<a href="DataAnalyticsFinal.pptx" target="_blank"> Final Powerpoint </a>
 
 <!-- OTHER -->
 <h2>Other Projects and Files</h2>
-<a href="./ux-files/tree-map.jpg" target="_blank"> Data Structures Code Example</a>
-<a href="./ux-files/secure-message.jpg" target="_blank"> Secure Message Encoder</a>
-<a href="./ux-files/risk-mgmt.pptx" target="_blank"> Risk Mangement Powerpoint</a>
-<a href="./ux-files/OperatingSystemsFinal.docx" target="_blank"> Operating Systems Final Paper</a>
-<a href="./ux-files/NetSec-Final.docx" target="_blank"> Network Security Final Paper</a>
-<a href="./ux-files/Intrusion-Dection.pptx" target="_blank"> Intrusion Detection Powerpoint</a>
-<a href="./ux-files/InfoSysBusinessProject.pptx" target="_blank"> Information Systems in Business Group Project</a>
-<a href="./ux-files/Database-Mgmt.docx" target="_blank"> Database Mangement</a>
-
-</div>
-
-</div>
-</div>
-</div>
+<a href="tree-map.jpg" target="_blank"> Data Structures Code Example</a>
+<a href="secure-message.jpg" target="_blank"> Secure Message Encoder</a>
+<a href="risk-mgmt.pptx" target="_blank"> Risk Mangement Powerpoint</a>
+<a href="OperatingSystemsFinal.docx" target="_blank"> Operating Systems Final Paper</a>
+<a href="NetSec-Final.docx" target="_blank"> Network Security Final Paper</a>
+<a href="Intrusion-Dection.pptx" target="_blank"> Intrusion Detection Powerpoint</a>
+<a href="InfoSysBusinessProject.pptx" target="_blank"> Information Systems in Business Group Project</a>
+<a href="Database-Mgmt.docx" target="_blank"> Database Mangement</a>
 
 </div>
 </section>
-<section id="accomplishments"> 
-    <h2>Accomplishments</h2>
-    <div class="card"> <ul> 
-        <li>Completed hands-on projects in encryption, data structures, and secure coding practices</li> 
-        <li>Built and deployed a personal cybersecurity portfolio using HTML, CSS, and GitHub Pages</li> 
-        <li>Developed understanding of digital forensics concepts and investigative techniques</li> 
-        <li>Applied problem-solving skills in algorithm design and debugging complex code</li>
-        <li>Gained experience in UX design through wireframing and usability testing projects</li>
-        <li>Made the Dean's List for Fall of 2025 at Trevecca Nazarene University</li> 
-    <li>Completed Internship at Rivergate Skate Center as an Operations Intern</li> </ul> 
-    </div>
-</section> 
-    <section id="resume">
-        <h2>Resume</h2> <
-        div class="card"> <a class="btn" href="./resume_it.docx" target="_blank">Download Resume</a> 
-        </div> 
-</section>    
 
-<section id="hireme"> 
-    <h2>Why Hire Me</h2> 
-    <div class="card"> 
-        <p>Strong technical foundation in IT & Security</p> 
-        <p>Fast Learner</p> <p>Detail-Oriented</p> 
-        <p>Passion for Cybersecurity</p> 
-    </div> </section> 
-    <section id="contact">
-        <h2>Contacts and Links</h2> 
-        <div class="card"> 
-            <p>Email: <a href="mailto:cheyenneconner54@gmail.com">Click</a></p> 
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/cheyenne-conner-829105340" target="_blank">View</a> </p> 
-            <p>Recommendations:</p> 
-            <p>Tracy Soles (Family Friend)</p> 
-            <p>Chase Conner (Current General Manager)</p> 
-            <p>Becky Browning (Recent Director)</p> 
-            <p>GitHub: <a href="https://github.com/Rconner-03">Link</a></p> 
-            <p> Figma: <a href="https://www.figma.com/proto/SDn6Q6JT2hIO1zobX46sII/Social-Justice-Advocacy-Website?node-id=0-1&t=iOoLHFNVNAnCm3tv-1" target=" _blank">View</a> </p> 
-        </div> </section> 
-    <footer>© 2026 Rebekah Conner</footer> 
-</div> 
-    <script> const text=[ "> Initializing...", 
-                         "> Loading Portfolio...", 
-                         "> Access Granted...", 
-                         "> Welcome Rebekah and Guests... ", ]; 
-        let i=0,j=0,current=""; 
-        function type(){ 
-            if(i<text.length){ 
-                if(j<text[i].length){ 
-                    current+=text[i][j]; 
-    document.getElementById("terminal").innerText=current; j++; 
-                    setTimeout(type,40);
-                }else{ current+="\n"; 
-                      i++;j=0; 
-                      setTimeout(type,400); } 
-            }else{ setTimeout(()=>{ document.getElementById("terminal").style.display="none"; 
-        document.getElementById("mainContent").style.display="block"; },800);
-                 } } type(); function flip(card){ 
-            card.classList.toggle("active"); }
-    </script> 
-</body> 
+<section id="accomplishments">
+<h2>Accomplishments</h2>
+<div class="card">
+<ul>
+<li>Dean’s List Fall 2025</li>
+<li>Cybersecurity Portfolio Project</li>
+<li>Internship Experience</li>
+</ul>
+</div>
+</section>
+
+<section id="resume">
+<h2>Resume</h2>
+<div class="card">
+<a class="btn" href="./resume_it.docx" target="_blank">Download Resume</a>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="card">
+<p>Email: cheyenneconner54@gmail.com</p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/cheyenne-conner-829105340" target="_blank">View</a> 
+</p> <p>Recommendations:</p> 
+    <p>Tracy Soles (Family Friend)</p> 
+    <p>Chase Conner (Current General Manager)</p> 
+    <p>Becky Browning (Recent Director)</p> 
+    <p>GitHub: <a href="https://github.com/Rconner-03">Link</a></p> 
+    <p> Figma: <a href="https://www.figma.com/proto/SDn6Q6JT2hIO1zobX46sII/Social-Justice-Advocacy-Website?node-id=0-1&t=iOoLHFNVNAnCm3tv-1" target=" _blank">View</a> </p>
+</div>
+</section>
+
+<footer>© 2026 Rebekah Conner</footer>
+
+</body>
 </html>
