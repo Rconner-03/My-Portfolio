@@ -12,7 +12,8 @@
     --text: #d1d5db;
     --emerald: #10b981;
 }
-    #terminal {
+
+#terminal {
     position: fixed;
     inset: 0;
     background: black;
@@ -24,11 +25,6 @@
     z-index: 9999;
 }
 
-  <div id="terminal"></div>
-
-<div id="mainContent" style="display:none;">
-    
-  
 body {
     margin: 0;
     font-family: monospace;
@@ -134,6 +130,10 @@ section {
 
 <body>
 
+<div id="terminal"></div>
+
+<div id="mainContent" style="display:none;">
+
 <nav>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
@@ -195,26 +195,24 @@ section {
 <p>Graduation: May 2026</p>
 </div>
 </section>
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <div class="card">
-            <p>No Certifications yet, Work in Progress</p>
-        </div>
-    </section>
+
+<section id="certifications">
+<h2>Certifications</h2>
+<div class="card">
+<p>No Certifications yet, Work in Progress</p>
+</div>
+</section>
 
 <section id="projects">
 <h2>Projects</h2>
 
 <div class="carousel">
 
-<!-- UX Class -->
 <h2>UX/UI Design Class</h2>
 <a href="ux-weatherApp.pptx" target="_blank">UX-WeatherApp</a>
 <a href="ux-SocialJustice.mp4" target="_blank">Social Justiice Website</a>
 <a href="ux-colortheory.mp4" target="_blank">Color Theory Website</a>
-    
-    
-<!-- PROJECT MGMT -->
+
 <h2>Project Mangement Class</h2>
 <a href="ProjectMgmtCharter.docx" target="_blank">Project Charter</a>
 <a href="ProjectMgmtWBS.docx" target="_blank">WBS</a>
@@ -223,22 +221,19 @@ section {
 <a href="ProjectMgmtSOW.docx" target="_blank">SOW</a>
 <a href="ProjectMgmtFinal.pptx" target="_blank">Final Powerpoint</a>
 
-<!-- Forensics -->
 <h2>Digital Forensics and Cryptography Classes</h2>
 <a href="ForensicsFinal.docx" target="_blank">Forensics Final</a>
 <a href="cryptography.docx" target="_blank"> Cryptography Paper</a>
 <a href="CoCLab-Forensics.docx" target="_blank"> Chain of Custody Lab</a>
 <a href="CoCimportance-Forensics.pptx" target="_blank"> Chain of Custody Importance Powerpoint</a>
 
-<!-- Data Analytics -->
 <h2>Data Analytics Class</h2>
 <a href="DataAnalyticsSpread.xlsx" target="_blank"> Graphs File</a>
 <a href="DataAnalyticsMain.xlsx" target="_blank"> Main File</a>
-<a href="DataAnalyticsGantt.xlsx" target="_blank">  Gantt Chart</a>
+<a href="DataAnalyticsGantt.xlsx" target="_blank"> Gantt Chart</a>
 <a href="DataAnalyticsFinalReport.docx" target="_blank"> Final Report</a>
 <a href="DataAnalyticsFinal.pptx" target="_blank"> Final Powerpoint </a>
 
-<!-- OTHER -->
 <h2>Other Projects and Files</h2>
 <a href="tree-map.jpg" target="_blank"> Data Structures Code Example</a>
 <a href="secure-message.jpg" target="_blank"> Secure Message Encoder</a>
@@ -248,6 +243,7 @@ section {
 <a href="Intrusion-Dection.pptx" target="_blank"> Intrusion Detection Powerpoint</a>
 <a href="InfoSysBusinessProject.pptx" target="_blank"> Information Systems in Business Group Project</a>
 <a href="Database-Mgmt.docx" target="_blank"> Database Mangement</a>
+<p> Figma: <a href="https://www.figma.com/proto/SDn6Q6JT2hIO1zobX46sII/Social-Justice-Advocacy-Website?node-id=0-1&t=iOoLHFNVNAnCm3tv-1" target=" _blank">View</a> </p>
 
 </div>
 </section>
@@ -274,19 +270,16 @@ section {
 <h2>Contact</h2>
 <div class="card">
 <p>Email: cheyenneconner54@gmail.com</p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/cheyenne-conner-829105340" target="_blank">View</a> 
-</p> <p>Recommendations:</p> 
-    <p>Tracy Soles (Family Friend)</p> 
-    <p>Chase Conner (Current General Manager)</p> 
-    <p>Becky Browning (Recent Director)</p> 
-    <p>GitHub: <a href="https://github.com/Rconner-03">Link</a></p> 
-    <p> Figma: <a href="https://www.figma.com/proto/SDn6Q6JT2hIO1zobX46sII/Social-Justice-Advocacy-Website?node-id=0-1&t=iOoLHFNVNAnCm3tv-1" target=" _blank">View</a> </p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/cheyenne-conner-829105340" target="_blank">View</a></p>
+<p>GitHub: <a href="https://github.com/Rconner-03">Link</a></p>
 </div>
 </section>
 
 <footer>© 2026 Rebekah Conner</footer>
 
-   <script>
+</div>
+
+<script>
 const text = [
     "> Initializing...",
     "> Loading Portfolio...",
@@ -317,22 +310,14 @@ function type() {
 
     } else {
         setTimeout(() => {
-            document.getElementById("terminal").style.opacity = "0";
-            setTimeout(() => {
-                document.getElementById("terminal").style.display = "none";
-                document.getElementById("mainContent").style.display = "block";
-            }, 600);
+            document.getElementById("terminal").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
         }, 800);
     }
 }
 
 type();
+</script>
 
-/* flip cards */
-function flip(card) {
-    card.classList.toggle("active");
-}
-</script> 
-</div>
 </body>
 </html>
